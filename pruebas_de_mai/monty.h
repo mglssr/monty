@@ -37,6 +37,6 @@ typedef struct instruction_s
 } instruction_t;
 
 
-
-
+void line_read(int argc __attribute__((unused)), char *argv[]);
+int spaces_count(char *buffer);
 #endif
