@@ -25,7 +25,7 @@ void *f_add(stack_t **stack, unsigned int line_number)
     exit(EXIT_FAILURE);   
   else
     {
-      lp->n %= bp->n;
+      lp->n = lp->n % bp->n;
       lp->prev = NULL;
       free(bp);
       *stack = lp;
