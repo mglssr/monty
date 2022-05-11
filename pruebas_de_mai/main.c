@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 	}
 	while (getline(&buffer, &buffersize, input_) != -1)
 	{
+		//** create a funtion to tokenize, check that the second token (int(?)) is an int, eg: 4a, with atoi 
 		token = strtok(buffer, "\n");
 		token = strtok(buffer, delim);
 		i = 0;
@@ -45,6 +46,7 @@ int main(int argc, char *argv[])
 			i++;
 		}
 		op_func = matching_func(opi[0]);
+	
 		free(opi);
 		free(toke);
 		free(buffer);
