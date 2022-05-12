@@ -10,8 +10,8 @@
 
 void *f_pint(stack_t **stack, unsigned int line_number)
 {
-  if (!*stack)
-    printf("L<%d>: %s\n", line_number, "can't print, stack empty");
-    exit(EXIT_FAILURE);
-  printf("%d\n", (*stack)->n);
+	if (!*stack)
+		printf("L<%d>: %s\n", line_number, "can't print, stack empty");
+		exit(EXIT_FAILURE);
+	printf("%d\n", (*stack)->n);
 }

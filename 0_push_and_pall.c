@@ -10,17 +10,19 @@
 
 void *f_push(stack_t **stack, unsigned int line_number)
 {
-  stack_t *new_val;
-
-  line_number = line_number;
-  new_val = malloc(sizeof(stack_t));
-  if (!new_stk)
-    _ex(stack, "Error: malloc failed\n");
-  new_val->next = *stack;
-  new_val->prev = NULL;
-  if (*stack)
-    (*stack)->prev = new_val;
-    *stack = new_val;
+	stack_t *new_val;
+	
+	new_val = malloc(sizeof(stack_t));
+	if (!new_stk)
+	{	
+		printf("L<%d>: %s\n", line_number, "usage: push integer");
+		exit(EXIT_FAILURE);
+	}
+	new_val->next = *stack;
+	new_val->prev = NULL;
+	if (*stack)
+		(*stack)->prev = new_val;
+	*stack = new_val;
 }
 
 /**
@@ -32,9 +34,9 @@ void *f_push(stack_t **stack, unsigned int line_number)
 
 void *f_pall(stack_t **stack, unsigned int line_number)
 {
-  stack_t *lp;
+	stack_t *lp;
 
-  lp = *stack;
-  for (lp = *stack; lp; lp = lp->next);
-      printf("%d\n", lp->n);
+	lp = *stack;
+	for (lp = *stack; lp; lp = lp->next);
+		printf("%d\n", lp->n);
 }
