@@ -1,28 +1,24 @@
-#include "main.h"
+#include "monty.h"
 #include <stdio.h>
 
 /**
- * f_add - adds the top two elements of the stack 
+ * f_sub - adds the top two elements of the stack 
  * @stack: stack
  * @line_number: line of code
  * Return: 0
  */
 
-void *f_add(stack_t **stack, unsigned int line_number)
+void f_sub(stack_t **stack, unsigned int line_number)
 {
-	stack_t bp, lp;
+	stack_t *bp, *lp;
 	bp = *stack;
 	
 	if (bp)
 		lp = bp->next;
 	else
-	{
-		printf("L<%d>: %s\n", line_number, "can't add, stack too short");
-		exit(EXIT_FAILURE);
-	}
+		p_error("can't add, stack too short", line_number);
 	if (!lp)
-		printf("L<%d>: %s\n", line_number, "can't add, stack too short");
-		exit(EXIT_FAILURE);
+		p_error("can't add, stack too short", line_number);
 	else
 	{
 		lp->n -= bp->n;

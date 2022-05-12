@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 #include <stdio.h>
 
 /**
@@ -8,7 +8,8 @@
  * Return: 0
  */
 
-void *f_nop(stack_t **stack, unsigned int line_number)
+void f_nop(stack_t **stack, unsigned int line_number)
 {
-	pass;
+	(void)stack;
+	(void)line_number;
 }

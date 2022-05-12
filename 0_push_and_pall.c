@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 #include <stdio.h>
 
 /**
@@ -8,16 +8,13 @@
  * Return: 0
  */
 
-void *f_push(stack_t **stack, unsigned int line_number)
+void f_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_val;
 	
 	new_val = malloc(sizeof(stack_t));
-	if (!new_stk)
-	{	
-		printf("L<%d>: %s\n", line_number, "usage: push integer");
-		exit(EXIT_FAILURE);
-	}
+	if (!new_val)
+		p_error("usage: push integer", line_number);
 	new_val->next = *stack;
 	new_val->prev = NULL;
 	if (*stack)
@@ -32,11 +29,12 @@ void *f_push(stack_t **stack, unsigned int line_number)
  * Return: 0
  */
 
-void *f_pall(stack_t **stack, unsigned int line_number)
+void f_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *lp;
 
+	(void)line_number;
 	lp = *stack;
-	for (lp = *stack; lp; lp = lp->next);
+	for (lp = *stack; lp; lp = lp->next)
 		printf("%d\n", lp->n);
 }

@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 #include <stdio.h>
 
 /**
@@ -8,10 +8,9 @@
  * Return: 0
  */
 
-void *f_pint(stack_t **stack, unsigned int line_number)
+void f_pint(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack)
-		printf("L<%d>: %s\n", line_number, "can't print, stack empty");
-		exit(EXIT_FAILURE);
+		p_error("can't print, stack empty", line_number);
 	printf("%d\n", (*stack)->n);
 }

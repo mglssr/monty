@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 #include <stdio.h>
 
 /**
@@ -8,25 +8,19 @@
  * Return: 0
  */
 
-void *f_swap(stack_t **stack, unsigned int line_number)
+void f_swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t bp, lp, pp;
+	stack_t *bp, *lp, *pp;
 	bp = *stack;
 	
 	if (bp)
 		lp = bp->next;
 	else
-	{
-		printf("L<%d>: %s\n", line_number, "can't swap, stack too short");
-		exit(EXIT_FAILURE);
-	}
+		p_error("can't swap, stack too short", line_number);
 	if (lp)
 		pp = lp->next;
 	else
-	{
-		printf("L<%d>: %s\n", line_number, "can't swap, stack too short");
-		exit(EXIT_FAILURE);
-	}
+		p_error("can't swap, stack too short", line_number);
 	if (pp)
 		pp->prev = bp;
 	*stack = lp;

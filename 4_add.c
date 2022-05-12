@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 #include <stdio.h>
 
 /**
@@ -8,21 +8,17 @@
  * Return: 0
  */
 
-void *f_add(stack_t **stack, unsigned int line_number)
+void f_add(stack_t **stack, unsigned int line_number)
 {
-	stack_t bp, lp;
+	stack_t *bp, *lp;
 	bp = *stack;
 	
 	if (bp)
 		lp = bp->next;
 	else
-	{
-		printf("L<%d>: %s\n", line_number, "can't add, stack too short");
-		exit(EXIT_FAILURE);
-	}
+		p_error("can't add, stack too short", line_number);
 	if (!lp)
-		printf("L<%d>: %s\n", line_number, "can't add, stack too short");
-		exit(EXIT_FAILURE);
+		p_error("can't add, stack too short", line_number);
 	else
 	{
 		lp->n += bp->n;

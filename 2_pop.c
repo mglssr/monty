@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 #include <stdio.h>
 
 /**
@@ -8,17 +8,16 @@
  * Return: 0
  */
 
-void *f_pop(stack_t **stack, unsigned int line_number)
+void f_pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t lp;
+	stack_t *lp;
 	
 	if (!*stack)
-		printf("L<%d>: %s\n", line_number, "can't pop an empty stack");
-		exit(EXIT_FAILURE);
+		p_error("can't pop an empty stack", line_number);
 	else
 	{
-		lp = stack->next;
-		stack->prev = NULL;
+		lp = (*stack)->next;
+		(*stack)->prev = NULL;
 		free(*stack);
 		*stack = lp;
 	}
