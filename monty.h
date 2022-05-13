@@ -36,6 +36,17 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+* struct global_var - struct for global variables
+* @argument:argument of the opcode
+*/
+typedef struct global_var
+{
+  char *argument;
+} global_var;
+
+global_var *ar;
+
 void p_error(char *message, int line_n);
 void f_push(stack_t **stack, unsigned int line_number);
 void f_pall(stack_t **stack, unsigned int line_number);
@@ -48,6 +59,6 @@ void f_sub(stack_t **stack, unsigned int line_number);
 void f_div(stack_t **stack, unsigned int line_number);
 void f_mul(stack_t **stack, unsigned int line_number);
 void f_mod(stack_t **stack, unsigned int line_number);
-
+stack_t *matching_func(stack_t **stack, char *opcode_, unsigned int line_number);
 
 #endif

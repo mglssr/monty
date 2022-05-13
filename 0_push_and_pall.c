@@ -10,13 +10,14 @@
 
 void f_push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_val;
-	
+	stack_t *new_val;	
+
 	new_val = malloc(sizeof(stack_t));
 	if (!new_val)
 		p_error("usage: push integer", line_number);
 	new_val->next = *stack;
 	new_val->prev = NULL;
+	new_val->n = atoi(ar->argument);
 	if (*stack)
 		(*stack)->prev = new_val;
 	*stack = new_val;
