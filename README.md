@@ -121,8 +121,3 @@ The opcode  `nop`  doesn’t do anything.
 
 -   Usage:  `nop`
 
-# Advanced tasks
-owo
-
-# Functions
-prototypes
